@@ -9,6 +9,7 @@
                     <th>Nombre</th>
                     <th>Localidad</th>
                     <th>Detalles</th>
+                    <th>Actualizar</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,6 +20,11 @@
                     <td>
                         <router-link class="btn btn-info" :to="`/details/${departamento.numero}/${departamento.nombre}/${departamento.localidad}`">
                             Details
+                        </router-link>
+                    </td>
+                    <td>
+                        <router-link class="btn btn-warning" :to="`/update/${departamento.numero}`">
+                             Update
                         </router-link>
                     </td>
                 </tr>

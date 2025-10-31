@@ -21,4 +21,17 @@ export default class ServiceDepartamentos {
         })
     })
   }
+
+  findDepartamento(id) {
+    return new Promise(function (resolve) {
+      var request = "api/departamentos/" + id;
+      var url =Global.apiDepartamentos + request;
+      let departamento = null;
+      axios.get(url).then((response) => {
+        console.log("Find departamento");
+        departamento = response.data;
+        resolve(departamento)
+      })
+    })
+  }
 }
