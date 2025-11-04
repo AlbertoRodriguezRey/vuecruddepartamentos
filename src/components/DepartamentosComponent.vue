@@ -10,6 +10,7 @@
                     <th>Localidad</th>
                     <th>Detalles</th>
                     <th>Actualizar</th>
+                    <th>Borrar</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,9 @@
                         <router-link class="btn btn-warning" :to="`/update/${departamento.numero}`">
                              Update
                         </router-link>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" @click="deleteDepartamento(departamento.numero)">Delete</button>
                     </td>
                 </tr>
             </tbody>
@@ -48,6 +52,15 @@ export default {
             this.departamentos = result;
             this.status = true;
         })
+    },
+    methods: {
+        deleteDepartamento(id) {
+            service.deleteDepartamento(id).then(() => {
+                service.getDepartamentos().then(result => {
+                    this.departamentos = result;
+                })
+            })
+        }
     }
     
 }

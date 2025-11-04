@@ -34,4 +34,24 @@ export default class ServiceDepartamentos {
       })
     })
   }
+
+  updateDepartamento(departamento) {
+    return new Promise(function(resolve) {
+        let request = "api/departamentos";
+        let url = Global.apiDepartamentos + request;
+        axios.put(url, departamento).then(response => {
+            resolve(response)
+        })
+    })
+  }
+
+  deleteDepartamento(id) {
+    return new Promise(function(resolve) {
+        let request = "api/departamentos/" + id;
+        let url = Global.apiDepartamentos + request;
+        axios.delete(url).then(response => {
+            resolve(response)
+        })
+    })
+  }
 }
